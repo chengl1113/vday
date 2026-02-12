@@ -1,0 +1,119 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #3b2430;
+  background-color: #ffd6ea;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* Cute floating hearts and bears background */
+.cute-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  background-color: #ffd6ea;
+}
+
+/* individual floating icons */
+.cute-bg .float {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.95;
+  transform-origin: center;
+  --duration: 6s;
+  --delay: 0s;
+  animation: floatY var(--duration) ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+
+.cute-bg .heart {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><path fill='%23ff6b9a' d='M32 58s-26-15-26-32a14 14 0 0128-4 14 14 0 0128 4c0 17-26 32-26 32z'/></svg>");
+}
+.cute-bg .bear {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='36' r='14' fill='%23f4c27a'/><circle cx='22' cy='24' r='6' fill='%23f4c27a'/><circle cx='42' cy='24' r='6' fill='%23f4c27a'/><circle cx='26' cy='36' r='2' fill='%23655'/><circle cx='38' cy='36' r='2' fill='%23655'/><ellipse cx='32' cy='44' rx='4' ry='3' fill='%23655'/></svg>");
+  width: 84px;
+  height: 84px;
+}
+
+/* Positions (fewer icons) */
+.cute-bg .heart.pos1 { left: 8%; top: 12%; --duration: 6.5s; --delay: 0s; transform: translateZ(0) scale(0.9); }
+.cute-bg .heart.pos2 { left: 72%; top: 8%; --duration: 7.5s; --delay: 0.6s; transform: translateZ(0) scale(1.0); }
+.cute-bg .heart.pos3 { left: 45%; top: 28%; --duration: 5.8s; --delay: 0.3s; transform: translateZ(0) scale(0.85); }
+.cute-bg .heart.pos4 { left: 20%; top: 62%; --duration: 8s; --delay: 0.9s; transform: translateZ(0) scale(0.95); }
+.cute-bg .bear.pos1 { left: 86%; top: 56%; --duration: 9s; --delay: 0.2s; transform: translateZ(0) scale(1); }
+.cute-bg .bear.pos2 { left: 52%; top: 72%; --duration: 10s; --delay: 0.7s; transform: translateZ(0) scale(0.95); }
+
+@keyframes floatY {
+  0% { transform: translateY(0px) translateX(0px) rotate(-6deg); }
+  50% { transform: translateY(-18px) translateX(6px) rotate(4deg); }
+  100% { transform: translateY(0px) translateX(-4px) rotate(-3deg); }
+}
+
+/* Slight stagger on each element via animation-delay */
+.cute-bg .float { animation-play-state: running; }
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
