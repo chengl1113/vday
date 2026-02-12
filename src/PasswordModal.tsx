@@ -7,8 +7,6 @@ interface PasswordRequirement {
 }
 
 const getDaysSinceDating = (): number => {
-  const startDate = new Date('2023-07-22')
-  const today = new Date()
   return 936
 }
 
@@ -78,6 +76,7 @@ export function PasswordModal({ isOpen, onClose, onSubmit }: PasswordModalProps)
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (allRequirementsMet) {
+      console.log(confirmPassword)
       onSubmit(password)
       setPassword('')
       setConfirmPassword('')

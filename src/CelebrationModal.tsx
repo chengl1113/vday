@@ -1,4 +1,3 @@
-import React from 'react'
 import './App.css'
 
 interface CelebrationModalProps {
@@ -6,7 +5,7 @@ interface CelebrationModalProps {
   onClose: () => void
 }
 
-export default function CelebrationModal({ isOpen, onClose }: CelebrationModalProps) {
+export default function CelebrationModal({ isOpen }: CelebrationModalProps) {
   if (!isOpen) return null
 
   const palette = ['#ff6b9a', '#ffd166', '#ff9ec7', '#ffb3c6', '#f7aef8', '#a8e6cf', '#ffd6ea', '#f6c5ff', '#ffe6b3', '#f8b7d6']
